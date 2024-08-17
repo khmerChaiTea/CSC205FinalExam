@@ -1,70 +1,35 @@
 ﻿namespace CSC205FinalExam
 {
-    public class Rect
+    public struct Complex
     {
-        public double Height { get; set; }
-        public double Length { get; set; }
-        public static double ComputeArea1(Rect rec)
+        public int real;
+        public int imaginary;
+        public Complex(int real, int imaginary)
         {
-            return rec.Height * rec.Length;
+            this.real = real;
+            this.imaginary = imaginary;
         }
-        public double ComputeArea2()
-        {
-            return Height * Length;
-        }
+        //more code is omitted here ...
     }
-    public class Program
-    {
-        public static void Main()
-        {
-            // 1) explain the following line:
-            var r = new Rect { Height = 2, Length = 3 };
-            // This line creates a new instance of the Rect class using object initializer syntax.
-            // It sets the Height property to 2 and the Length property to 3.
+    ////1) Transform the following static method into an instance method.
+    //public static double Abs(Complex c)
+    //{
+    //    return Math.Sqrt(c.Real * c.Real + c.Imaginary * c.Imaginary);
+    //}
 
-            // 2) Invoke ComputeArea1 to compute the area of r and display the result
-            double area1 = Rect.ComputeArea1(r);
-            Console.WriteLine("Area using ComputeArea1: " + area1);
+    //public double Abs()
+    //{
+    //    return Math.Sqrt(this.real * this.real + this.imaginary + this.imaginary);
+    //}
 
-            // 3) Change the rectangle's height and length to 4 and 6, respectively
-            r.Height = 4;
-            r.Length = 6;
+    ////2) Transform the following instance method into a static method.
+    //public bool Compare(Complex b)
+    //{
+    //    return (Real == b.Real && Imaginary == b.Imaginary);
+    //}
 
-            // 4) Invoke ComputeArea2 to compute the area of r, and display the result
-            double area2 = r.ComputeArea2();
-            Console.WriteLine("Area using ComputeArea2: " + area2);
-        }
-    }
+    //public static bool Compare(Complex a, Complex b)
+    //{
+    //    return (a.real = b.real && a.imaginary == b.imaginary);
+    //}
 }
-
-//public static void Main()
-//{
-//    // Note that array arr is already sorted
-//    int[] arr = { 1, 2, 5, 13, 13, 18, 22 };
-//    System.Console.WriteLine(Fun(arr, 6));
-//    System.Console.WriteLine(Fun(arr, 13));
-//    // Define a local function inside Main()
-//    int Fun(int[] arr, int searchNumber)
-//    {
-//        int left = 0;
-//        int right = arr.Length - 1;
-//        int middle;
-//        while (left <= right)
-//        {
-//            middle = (left + right) / 2;
-//            if (searchNumber == arr[middle])
-//            {
-//                return ++middle;
-//            }
-//            else if (searchNumber < arr[middle])
-//            {
-//                right = middle - 1;
-//            }
-//            else
-//            {
-//                left = middle + 1;
-//            }
-//        }
-//        return -1;
-//    }
-//}
