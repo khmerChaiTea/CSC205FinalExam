@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace CSC205FinalExam
@@ -8,28 +7,31 @@ namespace CSC205FinalExam
     {
         public static void Main()
         {
-            // List to store the numbers
-            List<int> numbers = new List<int>();
+            // Test cases
+            Console.WriteLine(IsDoubloon("April"));
+            Console.WriteLine(IsDoubloon("MadamD"));
+            Console.WriteLine(IsDoubloon("Cherry"));
+            Console.WriteLine(IsDoubloon("Shanghaiings"));
+            Console.WriteLine(IsDoubloon("giggling"));
+            Console.WriteLine(IsDoubloon("IbeIbe"));
+            Console.WriteLine(IsDoubloon("Sleeping"));
+        }
 
-            // Read 10 numbers from the user
-            Console.WriteLine("Please enter 10 numbers:");
-            for (int i = 0; i < 10; i++)
+        public static bool IsDoubloon(string word)
+        {
+            // Convert the word to lowercase to handle case-insensitivity
+            word = word.ToLower();
+
+            // Group the characters in the word and check if each character appears exactly twice
+            foreach (char c in word)
             {
-                Console.Write("Enter number {0}: ", i + 1);
-                int number = int.Parse(Console.ReadLine());
-                numbers.Add(number);
+                if (word.Count(ch => ch == c) != 2)
+                {
+                    return false;
+                }
             }
 
-            // Calculate minimum, maximum, and average
-            int min = numbers.Min();
-            int max = numbers.Max();
-            double avg = numbers.Average();
-
-            // Display the results
-            Console.WriteLine("\nResults:");
-            Console.WriteLine("Minimum: " + min);
-            Console.WriteLine("Maximum: " + max);
-            Console.WriteLine("Average: " + avg);
+            return true;
         }
     }
 }
